@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserLogin} from '../../model/user-login';
 import {AuthService} from '../../services/auth.service';
 import {TokenStorageService} from '../../services/token-storage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,18 @@ import {TokenStorageService} from '../../services/token-storage.service';
 })
 export class LoginComponent implements OnInit {
   userLogin: UserLogin = new UserLogin();
-  isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  returnUrl = 'home'
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
+              private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      this.router.navigateByUrl(this.returnUrl);
     }
   }
 
@@ -31,10 +33,9 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(formData).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
-        this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },
@@ -59,5 +60,6 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+    //this.router.navigateByUrl(this.returnUrl);
   }
 }
