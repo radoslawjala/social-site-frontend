@@ -1,9 +1,7 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../services/token-storage.service';
-import {User} from '../../model/user';
 import {HttpService} from '../../services/http-service';
 import {UserDetails} from '../../model/user-details';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',

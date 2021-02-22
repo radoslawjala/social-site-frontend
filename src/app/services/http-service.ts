@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {ExtendedUserDetails} from '../model/extended-user-details';
 
 const API_URL = 'http://localhost:8080/api/users/';
 
@@ -13,5 +14,9 @@ export class HttpService {
 
   getUserDetails(id: string): Observable<string> {
     return this.httpClient.get<string>(API_URL + id);
+  }
+
+  getAllUsers(): Observable<ExtendedUserDetails[]> {
+    return this.httpClient.get<ExtendedUserDetails[]>(API_URL);
   }
 }
