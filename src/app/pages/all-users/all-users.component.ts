@@ -18,7 +18,11 @@ export class AllUsersComponent implements OnInit {
     this.httpService.getAllUsers().subscribe(
       data => {
         this.userList = data;
-        console.log(this.userList);
+        //this.base64Data = this.userList.pictureBytes;
+        for(let i = 0; i < this.userList.length; i++) {
+          this.userList[i].retrievedImage = 'data:image/jpeg;base64,' + this.userList[i].pictureBytes;
+        }
+        //this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
       },
       error => {
         console.log(error);

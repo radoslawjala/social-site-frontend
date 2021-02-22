@@ -5,4 +5,6 @@ export class ExtendedUserDetails {
   hobbies: string;
   phoneNumber: string;
   email: string;
+  pictureBytes: any[];
+  retrievedImage: any;
 }
