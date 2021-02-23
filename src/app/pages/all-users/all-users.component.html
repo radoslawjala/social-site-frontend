@@ -2,6 +2,7 @@
   <a
     class="btn-large grey darken-1"
     *ngFor="let user of userList"
+    [routerLink]="['/users', user.id]"
   >
     <img id="image" [src]="user.retrievedImage"> <strong>@{{ user.username }}</strong> {{user.firstname}} {{user.lastname}} <br></a>
 </div>

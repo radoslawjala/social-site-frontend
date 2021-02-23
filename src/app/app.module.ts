@@ -11,6 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AllUsersComponent } from './pages/all-users/all-users.component';
+import { SelectedUserProfileComponent } from './pages/selected-user-profile/selected-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AllUsersComponent } from './pages/all-users/all-users.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    SelectedUserProfileComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule

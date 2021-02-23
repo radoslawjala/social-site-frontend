@@ -1,10 +1,8 @@
-export class ExtendedUserDetails {
+export class AllUserListUserDetails {
+  id: string;
   username: string;
   firstname: string;
   lastname: string;
-  hobbies: string;
-  phoneNumber: string;
-  email: string;
   pictureBytes: any[];
   retrievedImage: any;
 }

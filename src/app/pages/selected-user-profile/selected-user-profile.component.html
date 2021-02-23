@@ -1,0 +1,33 @@
+<div class="container">
+  <header class="jumbotron">
+    <h3>
+      <strong>@{{ selectedUser.username }}</strong>
+    </h3>
+  </header>
+  <div class="col-md-12">
+    <div *ngIf=retrievedImage>
+      <img [src]="retrievedImage">
+    </div>
+  </div>
+  <p>
+    <strong>First name:</strong>
+    {{ selectedUser.firstname }}
+  </p>
+  <p>
+    <strong>Last name:</strong>
+    {{ selectedUser.lastname }}
+  </p>
+  <p>
+    <strong>Hobbies:</strong>
+    {{ selectedUser.hobbies }}
+  </p>
+  <p>
+    <strong>Phone number:</strong>
+    {{ selectedUser.phoneNumber }}
+  </p>
+
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

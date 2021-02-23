@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../../services/http-service';
-import {ExtendedUserDetails} from '../../model/extended-user-details';
+import {AllUserListUserDetails} from '../../model/all-user-list-user-details';
 
 @Component({
   selector: 'app-all-users',
@@ -9,7 +9,7 @@ import {ExtendedUserDetails} from '../../model/extended-user-details';
 })
 export class AllUsersComponent implements OnInit {
 
-  userList: ExtendedUserDetails[];
+  userList: AllUserListUserDetails[];
 
   constructor(private httpService: HttpService) {
   }
@@ -18,11 +18,10 @@ export class AllUsersComponent implements OnInit {
     this.httpService.getAllUsers().subscribe(
       data => {
         this.userList = data;
-        //this.base64Data = this.userList.pictureBytes;
+        console.log(this.userList);
         for(let i = 0; i < this.userList.length; i++) {
           this.userList[i].retrievedImage = 'data:image/jpeg;base64,' + this.userList[i].pictureBytes;
         }
-        //this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
       },
       error => {
         console.log(error);
