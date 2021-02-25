@@ -19,4 +19,8 @@ export class HttpService {
   getAllUsers(): Observable<AllUserListUserDetails[]> {
     return this.httpClient.get<AllUserListUserDetails[]>(API_URL);
   }
+
+  addPost(formData: FormData): Observable<any> {
+    return this.httpClient.post(API_URL + 'add-post', formData);
+  }
 }
