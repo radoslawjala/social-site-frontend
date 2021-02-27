@@ -30,6 +30,8 @@
     {{ userDetails.phoneNumber }}
   </p>
 
+  <p *ngFor="let userPost of userPosts">{{userPost.title}} -- {{userPost.content}} -- {{userPost.date}}</p>
+
 </div>
 
 <ng-template #loggedOut>

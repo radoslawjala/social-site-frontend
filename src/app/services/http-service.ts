@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AllUserListUserDetails} from '../model/all-user-list-user-details';
+import {UserPost} from '../model/post';
 
 const API_URL = 'http://localhost:8080/api/users/';
 
@@ -22,5 +23,9 @@ export class HttpService {
 
   addPost(formData: FormData): Observable<any> {
     return this.httpClient.post(API_URL + 'add-post', formData);
+  }
+
+  getUserPosts(id: string): Observable<UserPost[]> {
+    return this.httpClient.get<UserPost[]>(API_URL + 'userPosts/' + id);
   }
 }

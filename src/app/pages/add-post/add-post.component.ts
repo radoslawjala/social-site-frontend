@@ -27,15 +27,17 @@ export class AddPostComponent implements OnInit {
 
   onSubmit(): void {
     const formData = new FormData();
-    formData.append('file', this.postForm.get('profile').value);
     this.userPost.userID = this.tokenStorage.getUser().id;
+    this.userPost.date = new Date().toLocaleString();
+    formData.append('file', this.postForm.get('profile').value);
     formData.append('userID', this.userPost.userID);
     formData.append('title', this.userPost.title);
     formData.append('content', this.userPost.content);
+    formData.append('date', this.userPost.date);
     console.log(this.userPost);
 
     this.httpService.addPost(formData).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.isSuccessful = true;
       this.isPostSendingFailed = false;
     }, err => {
