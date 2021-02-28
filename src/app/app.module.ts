@@ -13,6 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AllUsersComponent } from './pages/all-users/all-users.component';
 import { SelectedUserProfileComponent } from './pages/selected-user-profile/selected-user-profile.component';
 import { AddPostComponent } from './pages/add-post/add-post.component';
+import { EditComponent } from './pages/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddPostComponent } from './pages/add-post/add-post.component';
     AllUsersComponent,
     SelectedUserProfileComponent,
     AddPostComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule

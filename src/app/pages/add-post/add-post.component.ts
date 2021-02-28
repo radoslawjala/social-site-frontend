@@ -37,7 +37,6 @@ export class AddPostComponent implements OnInit {
     console.log(this.userPost);
 
     this.httpService.addPost(formData).subscribe(data => {
-      //console.log(data);
       this.isSuccessful = true;
       this.isPostSendingFailed = false;
     }, err => {

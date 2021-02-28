@@ -28,4 +28,8 @@ export class HttpService {
   getUserPosts(id: string): Observable<UserPost[]> {
     return this.httpClient.get<UserPost[]>(API_URL + 'userPosts/' + id);
   }
+
+  updateUserData(formData: FormData): Observable<any> {
+    return this.httpClient.patch(API_URL + 'update', formData);
+  }
 }
