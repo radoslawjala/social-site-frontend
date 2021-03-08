@@ -28,4 +28,8 @@ export class AuthService {
       return throwError(err);    //Rethrow it back to component
     }));
   }
+
+  changePassword(formData: FormData): Observable<any> {
+    return this.http.post(AUTH_API + 'changePassword', formData);
+  }
 }

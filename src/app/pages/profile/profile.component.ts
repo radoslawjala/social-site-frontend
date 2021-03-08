@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TokenStorageService} from '../../services/token-storage.service';
-import {HttpService} from '../../services/http-service';
+import {TokenStorageService} from '../../services/session/token-storage.service';
+import {HttpService} from '../../services/http/http-service';
 import {UserDetails} from '../../model/user-details';
 import {UserPost} from '../../model/post';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpService} from "../../services/http-service";
+import {HttpService} from "../../services/http/http-service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {UserPost} from "../../model/post";
-import {TokenStorageService} from "../../services/token-storage.service";
+import {TokenStorageService} from "../../services/session/token-storage.service";
 
 @Component({
   selector: 'app-add-post',

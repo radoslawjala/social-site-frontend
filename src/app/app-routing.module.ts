@@ -8,6 +8,7 @@ import {AllUsersComponent} from './pages/all-users/all-users.component';
 import {SelectedUserProfileComponent} from './pages/selected-user-profile/selected-user-profile.component';
 import {AddPostComponent} from "./pages/add-post/add-post.component";
 import {EditComponent} from './pages/edit/edit.component';
+import {ChangePasswordComponent} from './pages/change-password/change-password.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'add-post', component: AddPostComponent},
   {path: 'users/:id', component: SelectedUserProfileComponent},
   {path: 'edit', component: EditComponent},
+  {path: 'changePassword', component: ChangePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

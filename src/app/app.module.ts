@@ -14,6 +14,7 @@ import { AllUsersComponent } from './pages/all-users/all-users.component';
 import { SelectedUserProfileComponent } from './pages/selected-user-profile/selected-user-profile.component';
 import { AddPostComponent } from './pages/add-post/add-post.component';
 import { EditComponent } from './pages/edit/edit.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EditComponent } from './pages/edit/edit.component';
     SelectedUserProfileComponent,
     AddPostComponent,
     EditComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule
