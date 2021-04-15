@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MustMatch} from '../../services/validators/must-match';
-import {HttpService} from '../../services/http/http-service';
 import {MustDifferent} from '../../services/validators/must-different';
 import {AuthService} from '../../services/http/auth.service';
 import {TokenStorageService} from '../../services/session/token-storage.service';

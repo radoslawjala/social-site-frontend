@@ -15,6 +15,7 @@ import { SelectedUserProfileComponent } from './pages/selected-user-profile/sele
 import { AddPostComponent } from './pages/add-post/add-post.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     AddPostComponent,
     EditComponent,
     ChangePasswordComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule

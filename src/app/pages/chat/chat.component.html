@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <h2>Social site chatl</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <div class="input-group">
+          <input type="text" id="from" class="form-control" placeholder="Choose a nickname" [(ngModel)]="userName"/>
+          <div class="btn-group">
+            <button type="button" id="connect" class="btn btn-sm btn-outline-secondary" (click)="connect()">Connect
+            </button>
+            <button type="button" id="disconnect" class="btn btn-sm btn-outline-secondary" (click)="disconnect()"
+                    disabled>Disconnect
+            </button>
+          </div>
+        </div>
+        <div *ngIf="message1">{{message1}}</div>
+        <div *ngIf="message2">{{message2}}</div>
+
+        <div *ngIf="connected">
+          <div *ngFor="let user of usersList">
+            <li class="list-group-item">
+              <a class="active-user" (click)="setSelectedUser(user)">{{user}}</a>
+            </li>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" id="users" style="display: none;">
+        <span id="active-users-span"></span>
+        <ul id="active-users" class="list-group list-group-horizontal-sm"></ul>
+      </div>
+      <div id="divSelectedUser" class="mb-3" style="display: none;">
+        <span id="selectedUser" class="badge badge-secondary"></span> Selected
+      </div>
+      <div class="mb-3">
+        <div class="input-group" id="sendmessage" *ngIf="connected">
+          <input type="text" id="message" class="form-control" placeholder="Message" [(ngModel)]="textMessage">
+          <div class="input-group-append">
+            <button id="send" class="btn btn-primary" (click)="send()">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="content"></div>
+      <div>
+        <span class="float-right">
+          <button id="clear" class="btn btn-primary" onclick="clearMessages()" style="display: none;">Clear</button>
+        </span>
+      </div>
+      <div id="response"></div>
+    </div>
+  </div>
+
+  <div *ngFor="let message of messages">
+    <p>From: {{message.from}}, recipient: {{message.recipient}}, text: {{message.text}}, time: {{message.time}}</p>
+  </div>
+</div>

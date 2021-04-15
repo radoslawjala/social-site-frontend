@@ -9,6 +9,7 @@ import {SelectedUserProfileComponent} from './pages/selected-user-profile/select
 import {AddPostComponent} from "./pages/add-post/add-post.component";
 import {EditComponent} from './pages/edit/edit.component';
 import {ChangePasswordComponent} from './pages/change-password/change-password.component';
+import {ChatComponent} from './pages/chat/chat.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'add-post', component: AddPostComponent},
   {path: 'users/:id', component: SelectedUserProfileComponent},
   {path: 'edit', component: EditComponent},
+  {path: 'chat', component: ChatComponent},
   {path: 'changePassword', component: ChangePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

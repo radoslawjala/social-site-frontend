@@ -32,4 +32,12 @@ export class HttpService {
   updateUserData(formData: FormData): Observable<any> {
     return this.httpClient.patch(API_URL + 'update', formData);
   }
+
+  connect(userName: string): Observable<any> {
+    return this.httpClient.post<string>('http://localhost:8080/rest/user-connect',{userName: userName});
+  }
+
+  updateChatUsers(userName: string): Observable<any> {
+    return this.httpClient.get<string[]>('http://localhost:8080/rest/active-users-except/' + userName);
+  }
 }
