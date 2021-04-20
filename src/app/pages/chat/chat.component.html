@@ -1,27 +1,14 @@
 <div class="container">
   <div class="py-5 text-center">
-    <h2>Social site chatl</h2>
+    <h2>Social site chat!</h2>
   </div>
   <div class="row">
     <div class="col-md-6">
       <div class="mb-3">
-        <div class="input-group">
-          <input type="text" id="from" class="form-control" placeholder="Choose a nickname" [(ngModel)]="userName"/>
-          <div class="btn-group">
-            <button type="button" id="connect" class="btn btn-sm btn-outline-secondary" (click)="connect()">Connect
-            </button>
-            <button type="button" id="disconnect" class="btn btn-sm btn-outline-secondary" (click)="disconnect()"
-                    disabled>Disconnect
-            </button>
-          </div>
-        </div>
-        <div *ngIf="message1">{{message1}}</div>
-        <div *ngIf="message2">{{message2}}</div>
-
         <div *ngIf="connected">
           <div *ngFor="let user of usersList">
             <li class="list-group-item">
-              <a class="active-user" (click)="setSelectedUser(user)">{{user}}</a>
+              <button (click)="setSelectedUser(user)">{{user}}</button>
             </li>
           </div>
         </div>
@@ -34,7 +21,7 @@
         <span id="selectedUser" class="badge badge-secondary"></span> Selected
       </div>
       <div class="mb-3">
-        <div class="input-group" id="sendmessage" *ngIf="connected">
+        <div class="input-group" id="sendmessage" *ngIf="connected && usersList.length > 0">
           <input type="text" id="message" class="form-control" placeholder="Message" [(ngModel)]="textMessage">
           <div class="input-group-append">
             <button id="send" class="btn btn-primary" (click)="send()">Send</button>
@@ -54,6 +41,12 @@
   </div>
 
   <div *ngFor="let message of messages">
-    <p>From: {{message.from}}, recipient: {{message.recipient}}, text: {{message.text}}, time: {{message.time}}</p>
+    <div *ngIf="userName == message.from; else userResponse">
+    <p style="color: #1787ff">{{message.from}}: {{message.text}}, {{message.time}}</p>
+    </div>
+    <ng-template #userResponse>
+      <p style="color: green">{{message.from}}: {{message.text}}, {{message.time}}</p>
+    </ng-template>
+
   </div>
 </div>

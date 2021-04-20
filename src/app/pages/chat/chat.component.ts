@@ -25,20 +25,15 @@ export class ChatComponent implements OnInit {
   connected: boolean = false;
 
   constructor(private httpService: HttpService,
-              private changeDetection: ChangeDetectorRef) { }
+              private changeDetection: ChangeDetectorRef,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-
-    //todo w trakcie inicjalizacji wykonaj metodę connect
-
+    this.userName = this.tokenStorageService.getUser().username;
+    this.connect();
   }
 
   connect() {
-    if (this.userName == null || this.userName === "") {
-      alert('Please input a nickname!');
-      return;
-    }
-
     this.httpService.connect(this.userName)
       .subscribe(data => {
           console.log(data);
@@ -112,7 +107,12 @@ export class ChatComponent implements OnInit {
   }
 
   send(): void {
+    if(!this.selectedUser) {
+      alert('Select user');
+      return;
+    }
     this.stompClient.send("/app/chat", this.userName,
       JSON.stringify({'from': this.userName, 'text': this.textMessage, 'recipient': this.selectedUser}));
+    this.textMessage = '';
   }
 }
